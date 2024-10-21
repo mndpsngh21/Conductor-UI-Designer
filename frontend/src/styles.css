@@ -1,0 +1,372 @@
+/* src/styles.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.flow-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background: #f7f7f7;
+  height: 100%;
+  width: 200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.sidebar button {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1em;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+.reactflow-wrapper {
+  flex-grow: 1;
+  position: relative;
+}
+
+.node {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.options{
+  
+}
+/* General Styling for the popup container */
+.popup-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 9999;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.popup-header h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.popup-header input {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 100%;
+
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 10%;
+  cursor: pointer;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.tab-navigation button {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+  color: #666;
+}
+
+.tab-navigation button.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.task-list li:hover {
+  background: #f1f1f1;
+}
+
+.task-list li.active {
+  background: #e9f7ff;
+}
+
+.task-list .task-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.task-list .task-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-list .task-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.task-list .task-description {
+  font-size: 12px;
+  color: #888;
+}
+
+.flow-container {
+  height: 100vh;
+}
+
+.custom-node {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.node-footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.node-footer button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.node-footer button:hover {
+  background-color: #0056b3;
+}
+
+.popup-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 9999;
+  font-family: 'Arial', sans-serif;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.popup-header input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.task-list li:hover {
+  background: #f1f1f1;
+}
+
+.task-icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+
+/* Task Popup Container */
+.task-popup {
+  position: fixed; /* Use fixed position for better usability */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; /* Set a fixed width for consistency */
+  max-height: 80vh; /* Limit height to 80% of viewport */
+  background: white; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  padding: 20px; /* Padding inside the popup */
+  z-index: 9999; /* Ensure it appears on top of other elements */
+  overflow-y: auto; /* Enable vertical scrolling */
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+/* Popup Header */
+.popup-header {
+  display: flex;
+  justify-content: space-between; /* Space out header content */
+  align-items: center;
+  margin-bottom: 15px; /* Space below header */
+}
+
+/* Input field in the header */
+.popup-header input {
+  flex: 1; /* Take full width */
+  padding: 8px; /* Padding for comfort */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 14px; /* Font size */
+}
+
+/* Task List Styles */
+.task-list {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  max-height: 300px; /* Limit the height of the task list */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Individual Task Item */
+.task-list li {
+  display: flex; /* Flexbox for aligning items */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Padding for comfortable clicking */
+  cursor: pointer; /* Cursor indicates clickable items */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.task-list li:hover {
+  background: #f0f0f0; /* Light gray background on hover */
+}
+
+/* Task Icons */
+.task-icon {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 20px; /* Size of the icon */
+  color: #007bff; /* Icon color */
+}
+
+/* Add Task Button at the bottom */
+.add-task-button {
+  background-color: #007bff; /* Blue background for the button */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 10px 15px; /* Padding for comfort */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: background 0.3s ease; /* Transition for hover effect */
+  margin-top: 10px; /* Space above the button */
+  width: 100%; /* Full width */
+}
+
+.add-task-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Close Button */
+.close-button {
+  background: transparent; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 16px; /* Size of close button */
+}
+
+.add-task-icon {
+  background-color: white; /* Button background color */
+  border: 2px solid #5aa7a7; /* Border color */
+  color: #5aa7a7; /* Icon color */
+  border-radius: 50%; /* Circular button */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-icon:hover {
+  background-color: #5aa7a7; /* Change background on hover */
+  color: white; /* Change icon color on hover */
+}
+
+.start-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5aa7a7; /* Circle color */
+  color: white; /* Text color */
+  font-weight: bold;
+  border-radius: 50%; /* Makes the div a circle */
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  border: 2px solid #4d9b9b; /* Optional border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Optional shadow */
+}
+
+.start-circle span {
+  font-size: 10px; /* Font size */
+}

@@ -1,0 +1,54 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider      
+    ports:
+      - "3000:80" # Host Port : Container Port
+    depends_on:
+      - backend
+    networks:
+      - docker_internal
+
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000" # Host Port : Container Port
+    environment:
+      - CONDUCTOR_URL=http://localhost:8080/api/
+      - MONGODB_URI=mongodb://mongo:27017/workflow-designer
+    depends_on:
+      - mongo
+    networks:
+      - docker_internal
+
+  
+  # MongoDB Service (Optional, if backend uses MongoDB)
+  mongo:
+    image: mongo:5.0
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - docker_internal
+
+networks:
+  docker_internal:
+   external: true
+  
+
+volumes:
+  db-data:
+  mongo-data:
